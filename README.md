@@ -1,11 +1,7 @@
 # realai-cli
+
 A template cli
-### 安装依赖
 
-`npm install`
+### 安装
 
-### 启动
-
-`npm run watch`
-
-### 执行 `npm link`
+`npm install -g realai-cli`
