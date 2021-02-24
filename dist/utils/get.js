@@ -14,8 +14,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var downloadLocal = function downloadLocal() {
   var templateName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'react';
   var projectName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : './';
-  var config = _constants.REGISTRYS_MAP[templateName];
-  var api = "".concat(config.registry, "/").concat(config.template);
+  var {
+    registry,
+    template,
+    branch
+  } = _constants.REGISTRYS_MAP[templateName];
+  var api = "".concat(registry, "/").concat(template, "#").concat(branch);
   return new Promise((resolve, reject) => {
     (0, _downloadGitRepo.default)(api, projectName, err => {
       if (err) {

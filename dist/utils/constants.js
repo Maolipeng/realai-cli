@@ -15,9 +15,15 @@ exports.RC = RC;
 var REGISTRYS_MAP = {
   react: {
     registry: 'Maolipeng',
-    template: 'config-template'
+    template: 'config-template',
+    branch: 'master'
+  },
+  screen: {
+    registry: 'Maolipeng',
+    template: 'data-visual-screen',
+    branch: 'main'
   }
 };
 exports.REGISTRYS_MAP = REGISTRYS_MAP;
-var ALLOW_TEMPLATES = ['react'];
+var ALLOW_TEMPLATES = ['react', 'screen'];
 exports.ALLOW_TEMPLATES = ALLOW_TEMPLATES;

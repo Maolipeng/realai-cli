@@ -10,7 +10,13 @@ export const REGISTRYS_MAP = {
   react: {
     registry: 'Maolipeng',
     template: 'config-template',
+    branch: 'master',
+  },
+  screen: {
+    registry: 'Maolipeng',
+    template: 'data-visual-screen',
+    branch: 'main',
   },
 }
 
-export const ALLOW_TEMPLATES = ['react']
+export const ALLOW_TEMPLATES = ['react', 'screen']
