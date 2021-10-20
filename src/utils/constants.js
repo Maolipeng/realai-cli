@@ -18,11 +18,6 @@ const REGISTRYS_MAP = {
     template: 'umi-ts-template',
     branch: 'main',
   },
-  'admin-pro': {
-    registry: 'realai-FE',
-    template: 'antd-pro-template',
-    branch: 'main',
-  },
   screen: {
     registry: 'realai-FE',
     template: 'data-visual-screen',

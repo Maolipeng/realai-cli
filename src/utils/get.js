@@ -4,6 +4,7 @@ const downloadGit = require('download-git-repo')
 exports.downloadLocal = (templateName = 'react', projectName = './') => {
   const { registry, template, branch } = REGISTRYS_MAP[templateName]
   let api = `${registry}/${template}#${branch}`
+  console.log('api', api)
   return new Promise((resolve, reject) => {
     downloadGit(api, projectName, (err) => {
       if (err) {

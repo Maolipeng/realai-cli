@@ -11,6 +11,7 @@ exports.downloadLocal = (templateName = 'react', projectName = './') => {
     branch
   } = REGISTRYS_MAP[templateName];
   let api = `${registry}/${template}#${branch}`;
+  console.log('api', api);
   return new Promise((resolve, reject) => {
     downloadGit(api, projectName, err => {
       if (err) {
