@@ -1,29 +1,46 @@
-"use strict";
+// import { version } from '../../package.json'
+const {
+  version
+} = require('../../package.json');
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ALLOW_TEMPLATES = exports.REGISTRYS_MAP = exports.RC = exports.VERSION = void 0;
-
-var _package = require("../../package.json");
-
-var VERSION = _package.version;
-exports.VERSION = VERSION;
-var HOME = process.env[process.platform === 'win32' ? 'USERPROFILE' : 'HOME'];
-var RC = "".concat(HOME, "/.relairc");
-exports.RC = RC;
-var REGISTRYS_MAP = {
-  react: {
-    registry: 'Maolipeng',
-    template: 'config-template',
-    branch: 'master'
+const VERSION = version;
+const HOME = process.env[process.platform === 'win32' ? 'USERPROFILE' : 'HOME'];
+exports.RC = `${HOME}/.relairc`;
+const REGISTRYS_MAP = {
+  'admin-pro': {
+    registry: 'realai-FE',
+    template: 'admin-template',
+    branch: 'main'
+  },
+  'umi-ts': {
+    registry: 'realai-FE',
+    template: 'umi-ts-template',
+    branch: 'main'
+  },
+  'admin-pro': {
+    registry: 'realai-FE',
+    template: 'antd-pro-template',
+    branch: 'main'
   },
   screen: {
-    registry: 'Maolipeng',
+    registry: 'realai-FE',
     template: 'data-visual-screen',
     branch: 'main'
+  },
+  react: {
+    registry: 'realai-FE',
+    template: 'config-template',
+    branch: 'master'
   }
 };
-exports.REGISTRYS_MAP = REGISTRYS_MAP;
-var ALLOW_TEMPLATES = ['react', 'screen'];
-exports.ALLOW_TEMPLATES = ALLOW_TEMPLATES;
+const ALLOW_TEMPLATES = Object.keys(REGISTRYS_MAP);
+const TEMPLATE_CHOICES = ALLOW_TEMPLATES.map(item => ({
+  name: item,
+  checked: item === 'umi-ts'
+}));
+module.exports = {
+  REGISTRYS_MAP,
+  ALLOW_TEMPLATES,
+  TEMPLATE_CHOICES,
+  VERSION
+};

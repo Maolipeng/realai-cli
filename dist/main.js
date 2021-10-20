@@ -1,26 +1,25 @@
-"use strict";
+const {
+  Command
+} = require('commander');
 
-var _commander = require("commander");
+const {
+  VERSION
+} = require('./utils/constants');
 
-var _constants = require("./utils/constants");
+const apply = require('./index');
 
-var _index = _interopRequireDefault(require("./index"));
-
-var _chalk = _interopRequireDefault(require("chalk"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// const program = new Command()
-
+const chalk = require('chalk');
 /**
  * cli commands
  *    - config
  *    - init
  */
-var program = new _commander.Command();
-var actionMap = {
+
+
+const program = new Command();
+const actionMap = {
   init: {
-    description: 'generate a new project from a template',
+    description: 'generate a new project require() a template',
     usages: ['realai init templateName projectName']
   },
   config: {
@@ -31,10 +30,10 @@ var actionMap = {
 
 };
 program.command('init').description('realai init').action(() => {
-  (0, _index.default)('init', ...process.argv.slice(3));
+  apply('init', ...process.argv.slice(3));
 });
 program.command('config').description('config .realairc').alias('cfg').action(() => {
-  (0, _index.default)('config', ...process.argv.slice(3));
+  apply('config', ...process.argv.slice(3));
 });
 
 function help() {
@@ -50,12 +49,13 @@ function help() {
 program.usage('<command> [options]');
 program.on('-h', help);
 program.on('--help', help);
-program.version(_constants.VERSION, '-V --version').parse(process.argv); // realai 不带参数时
+program.version(VERSION, '-V --version');
+program.parse(process.argv); // realai 不带参数时
 
 if (!process.argv.slice(2).length) {
   program.outputHelp(make_green);
 }
 
 function make_green(txt) {
-  return _chalk.default.green(txt);
+  return chalk.green(txt);
 }

@@ -1,14 +1,14 @@
-import { RC } from './constants'
-import { decode, encode } from 'ini'
-import { promisify } from 'util'
-import chalk from 'chalk'
-import fs from 'fs'
+const { RC } = require('./constants')
+const { decode, encode } = require('ini')
+const { promisify } = require('util')
+const chalk = require('chalk')
+const fs = require('fs')
 
 const exits = promisify(fs.exists)
 const readFile = promisify(fs.readFile)
 const writeFile = promisify(fs.writeFile)
 
-export const get = async (key) => {
+const get = async (key) => {
   const exit = await exits(RC)
   let opts
   if (exit) {
@@ -19,7 +19,7 @@ export const get = async (key) => {
   return ''
 }
 
-export const getAll = async () => {
+const getAll = async () => {
   const exit = await exits(RC)
   let opts
   if (exit) {
@@ -30,7 +30,7 @@ export const getAll = async () => {
   return {}
 }
 
-export const set = async (key, value) => {
+const set = async (key, value) => {
   const exit = await exits(RC)
   let opts
   if (exit) {
@@ -54,7 +54,7 @@ export const set = async (key, value) => {
   await writeFile(RC, encode(opts), 'utf8')
 }
 
-export const remove = async (key) => {
+const remove = async (key) => {
   const exit = await exits(RC)
   let opts
   if (exit) {
@@ -63,4 +63,11 @@ export const remove = async (key) => {
     delete opts[key]
     await writeFile(RC, encode(opts), 'utf8')
   }
+}
+
+module.exports = {
+  get,
+  getAll,
+  set,
+  remove,
 }

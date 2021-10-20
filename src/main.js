@@ -1,8 +1,7 @@
-import { Command } from 'commander'
-import { VERSION } from './utils/constants'
-import apply from './index'
-import chalk from 'chalk'
-// const program = new Command()
+const { Command } = require('commander')
+const { VERSION } = require('./utils/constants')
+const apply = require('./index')
+const chalk = require('chalk')
 
 /**
  * cli commands
@@ -11,9 +10,9 @@ import chalk from 'chalk'
  */
 const program = new Command()
 
-let actionMap = {
+const actionMap = {
   init: {
-    description: 'generate a new project from a template',
+    description: 'generate a new project require() a template',
     usages: ['realai init templateName projectName'],
   },
   config: {
@@ -54,7 +53,8 @@ function help() {
 program.usage('<command> [options]')
 program.on('-h', help)
 program.on('--help', help)
-program.version(VERSION, '-V --version').parse(process.argv)
+program.version(VERSION, '-V --version')
+program.parse(process.argv)
 
 // realai 不带参数时
 if (!process.argv.slice(2).length) {

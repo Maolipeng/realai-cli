@@ -1,4 +1,4 @@
-import { get, set, getAll, remove } from './utils/rc'
+const { get, set, getAll, remove } = require('./utils/rc')
 
 const config = async (action, key, value) => {
   console.log('action', action)

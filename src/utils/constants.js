@@ -1,22 +1,49 @@
-import { version } from '../../package.json'
+// import { version } from '../../package.json'
+const { version } = require('../../package.json')
 
-export const VERSION = version
+const VERSION = version
 
 const HOME = process.env[process.platform === 'win32' ? 'USERPROFILE' : 'HOME']
 
-export const RC = `${HOME}/.relairc`
+exports.RC = `${HOME}/.relairc`
 
-export const REGISTRYS_MAP = {
-  react: {
-    registry: 'Maolipeng',
-    template: 'config-template',
-    branch: 'master',
+const REGISTRYS_MAP = {
+  'admin-pro': {
+    registry: 'realai-FE',
+    template: 'admin-template',
+    branch: 'main',
+  },
+  'umi-ts': {
+    registry: 'realai-FE',
+    template: 'umi-ts-template',
+    branch: 'main',
+  },
+  'admin-pro': {
+    registry: 'realai-FE',
+    template: 'antd-pro-template',
+    branch: 'main',
   },
   screen: {
-    registry: 'Maolipeng',
+    registry: 'realai-FE',
     template: 'data-visual-screen',
     branch: 'main',
   },
+  react: {
+    registry: 'realai-FE',
+    template: 'config-template',
+    branch: 'master',
+  },
 }
 
-export const ALLOW_TEMPLATES = ['react', 'screen']
+const ALLOW_TEMPLATES = Object.keys(REGISTRYS_MAP)
+const TEMPLATE_CHOICES = ALLOW_TEMPLATES.map((item) => ({
+  name: item,
+  checked: item === 'umi-ts',
+}))
+
+module.exports = {
+  REGISTRYS_MAP,
+  ALLOW_TEMPLATES,
+  TEMPLATE_CHOICES,
+  VERSION,
+}
