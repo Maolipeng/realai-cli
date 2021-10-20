@@ -40,9 +40,10 @@ realai init
 ```
 
  1. init后面可以不传参数，如果不传会把支持的所有模版列出来，支持选择 
-   ![选择安装](https://tva1.sinaimg.cn/large/008i3skNly1grt6jeeuplj30gn02edfy.jpg)
+   
+ 2. ![选择安装](https://s3.jpg.cm/2021/10/20/IBOo0W.png)
 
- 2. 也可以直接传递参数直接安装
+ 3. 也可以直接传递参数直接安装
    
 * pro管理系统模板
 
@@ -62,4 +63,4 @@ realai init
 * 基于ts的Pro管理系统
   `realai init admin-pro`
 
-***建议如果是后台管理系统，优先使用umi-ts***
+***建议如果是后台管理系统，复杂的项目优先使用admin-pro，比较简单的可以用umi-ts***

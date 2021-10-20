@@ -38,7 +38,7 @@ const REGISTRYS_MAP = {
 const ALLOW_TEMPLATES = Object.keys(REGISTRYS_MAP)
 const TEMPLATE_CHOICES = ALLOW_TEMPLATES.map((item) => ({
   name: item,
-  checked: item === 'umi-ts',
+  checked: item === 'admin-pro',
 }))
 
 module.exports = {
